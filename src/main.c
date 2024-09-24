@@ -1,5 +1,5 @@
 #include <GL/glew.h>      // OpenGL extension wrangler
-#include <GLFW/glfw3.h>   // GLFW for window and input handlin
+#include <GLFW/glfw3.h>   // GLFW for window and input handling
 #include <stdio.h>
 
 // prototypes are placed on top so they can call the functions at the bottom
