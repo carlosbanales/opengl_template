@@ -9,6 +9,9 @@ void processInput(GLFWwindow *window);
 void drawLine();
 
 // Vertex Shader source code
+// version 3.30 of opengl shading language
+// declare an input variable (aPos) then convert the 2d position (aPos) into 4d vector
+// and sets z to 0.0 and w to 1.0 cause opengl works in homogeneous corrdinates
 const char* vertexShaderSource = R"(
     #version 330 core
     layout(location = 0) in vec2 aPos; // 2D position
@@ -18,6 +21,7 @@ const char* vertexShaderSource = R"(
 )";
 
 // Fragment Shader source code
+// 
 const char* fragmentShaderSource = R"(
     #version 330 core
     out vec4 FragColor; // Output color
