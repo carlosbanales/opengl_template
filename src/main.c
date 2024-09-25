@@ -21,7 +21,8 @@ const char* vertexShaderSource = R"(
 )";
 
 // Fragment Shader source code
-// 
+// declaring output variable FragColor
+// set the output color to red(full opacity) creates a 4d vector with rgba values
 const char* fragmentShaderSource = R"(
     #version 330 core
     out vec4 FragColor; // Output color
@@ -87,10 +88,11 @@ int main() {
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
 
-    // Set up vertex data for a line
-    GLfloat vertices[] = {
-        -0.5f, 0.0f,  // Start point (left)
-         0.5f, 0.0f   // End point (right)
+    // Set up vertex data for a triaangle 
+    float vertices[] = {
+        -0.5f, -0.5f,  // bottom left 
+         0.5f, -0.5f,  // bottom right
+         0.0f, 0.5f    // top middle
     };
 
     // Generate and bind vertex array and buffer objects
@@ -123,7 +125,7 @@ int main() {
         // Draw the line
         glUseProgram(shaderProgram);
         glBindVertexArray(VAO);
-        glDrawArrays(GL_LINES, 0, 2); // Draw the line
+        glDrawArrays(GL_TRIANGLES, 0, 3); // Draw the line
         glBindVertexArray(0);
 
         // Swap buffers
